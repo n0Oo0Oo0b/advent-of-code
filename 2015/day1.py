@@ -10,6 +10,7 @@ def day1(data):
                 part2 = i+1
     return floor, part2
 
+
 if __name__ == '__main__':
     with open('inputs/day1.txt') as file:
         data = file.read()

@@ -26,6 +26,7 @@ def part2(data):
 def day3(data):
     return part1(data), part2(data)
 
+
 if __name__ == '__main__':
     with open('inputs/day3.txt') as file:
         data = file.read()

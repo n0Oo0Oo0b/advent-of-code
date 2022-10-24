@@ -12,6 +12,7 @@ def day4(data):
                 return part1, i
         i += 1
 
+
 if __name__ == '__main__':
     with open('inputs/day4.txt') as file:
         data = file.read()

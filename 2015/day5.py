@@ -11,6 +11,7 @@ def is_nice_2(string):
     elif not re.findall(r'(\w).\1', string): return False
     return True
 
+
 def day5(data):
     nice_1, nice_2 = 0, 0
     for row in data.splitlines():

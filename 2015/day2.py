@@ -12,6 +12,7 @@ def day2(data):
         total_ribbon += 2*(l+w) + l*w*h
     return total_paper, total_ribbon
 
+
 if __name__ == '__main__':
     with open('inputs/day2.txt') as file:
         data = file.read()
