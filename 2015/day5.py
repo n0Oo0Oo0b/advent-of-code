@@ -21,9 +21,8 @@ def day5(data):
             nice_2 += 1
     return nice_1, nice_2
 
+
 if __name__ == '__main__':
     with open('inputs/day5.txt') as file:
         data = file.read()
     print("Part 1: {}\nPart 2: {}".format(*day5(data)))
-
-# print(day5('ugknbfddgicrmopn'))
