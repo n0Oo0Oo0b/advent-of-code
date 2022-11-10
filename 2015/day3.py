@@ -1,30 +1,19 @@
-def part1(data):
-    visited = {(0,0)}
+def get_locations(directions):
     x, y = 0, 0
-    for char in data:
+    visited = {(x, y)}
+    for char in directions:
         if char == '<': x -= 1
         elif char == '>': x += 1
-        elif char == '^': y -= 1
-        else: y += 1
-        visited.add((x, y))
-    return len(visited)
+        elif char == '^': y += 1
+        elif char == 'v': y -= 1
+        visited.add((x, y))  # type: ignore
+    return visited
 
-def part2(data):
-    # this is kinda repetitive but whatever
-    visited = {(0,0)}
-    santa = [0,0]
-    robosanta = [0,0]
-    for i, char in enumerate(data):
-        move = santa if i%2==0 else robosanta
-        if char == '<': move[0] -= 1
-        elif char == '>': move[0] += 1
-        elif char == '^': move[1] -= 1
-        else: move[1] += 1
-        visited.add(tuple(move))
-    return len(visited)
 
 def day3(data):
-    return part1(data), part2(data)
+    part1 = len(get_locations(data))
+    part2 = len(get_locations(data[::2]) | get_locations(data[1::2]))
+    return part1, part2
 
 
 if __name__ == '__main__':
