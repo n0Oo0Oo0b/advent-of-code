@@ -17,6 +17,6 @@ def day3(data):
 
 
 if __name__ == '__main__':
-    with open('inputs/day3.txt') as file:
+    with open('inputs/day03.txt') as file:
         data = file.read()
     print("Part 1: {}\nPart 2: {}".format(*day3(data)))
