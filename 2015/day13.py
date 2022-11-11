@@ -3,7 +3,7 @@ from itertools import permutations
 import re
 
 
-def max_happiness(people, happiness_pairs):
+def _max_happiness(people, happiness_pairs):
     # Brute force all arrangements
     max_ = 0
     for c in permutations(people):
@@ -28,9 +28,9 @@ def day13(data):
         net_happiness[frozenset((a, b))] += value
         people |= {a, b}
     # Run brute force
-    part1 = max_happiness(people, net_happiness)
+    part1 = _max_happiness(people, net_happiness)
     people.add('you')
-    part2 = max_happiness(people, net_happiness)
+    part2 = _max_happiness(people, net_happiness)
     return part1, part2
 
 

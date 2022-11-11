@@ -4,7 +4,7 @@ from math import prod
 import re
 
 @dataclass
-class Ingredient:
+class _Ingredient:
     capacity: int
     durability: int
     flavor: int
@@ -16,10 +16,10 @@ class Ingredient:
         return (self.capacity, self.durability, self.flavor, self.texture, self.calories)
 
     def __mul__(self, other):
-        return Ingredient(*(i*other for i in self.stats))
+        return _Ingredient(*(i*other for i in self.stats))
 
     def __add__(self, other):
-        return Ingredient(*(i + j for i, j in zip(self.stats, other.stats)))
+        return _Ingredient(*(i + j for i, j in zip(self.stats, other.stats)))
 
     @property
     def score(self):
@@ -33,7 +33,7 @@ def day15(data):
     ingredients = []
     for row in data.splitlines():
         values = (int(i) for i in re.findall(r'-?\d+', row))
-        ingredients.append(Ingredient(*values))
+        ingredients.append(_Ingredient(*values))
     # Brute force every recipe
     part1 = 0
     part2 = 0
@@ -41,7 +41,7 @@ def day15(data):
         i = (0, *i, 100)
         quantities = (i[j+1] - i[j] for j in range(len(ingredients)))
         # Calculate ingredient score
-        cookie = Ingredient(0, 0, 0, 0, 0)  # start with empty stats
+        cookie = _Ingredient(0, 0, 0, 0, 0)  # start with empty stats
         for ingredient, multiplier in zip(ingredients, quantities):
             cookie += ingredient * multiplier
         score = cookie.score

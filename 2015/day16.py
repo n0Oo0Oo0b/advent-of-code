@@ -1,7 +1,7 @@
 import operator
 
 
-def parse_properties(inp):
+def _parse_properties(inp):
     output = {}
     for i in inp.split(', '):
         name, _, value = i.partition(': ')
@@ -27,7 +27,7 @@ def day16(inp):
     for line in inp.splitlines():
         # Parse line
         sue, _, raw_properties = line.partition(': ')
-        properties = parse_properties(raw_properties)
+        properties = _parse_properties(raw_properties)
         # Match part 1
         if properties.items() <= TARGET_PROPERTIES.items():  # checks for subsets of TARGET_PROPERTIES
             part1 = int(sue.split()[1])

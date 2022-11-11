@@ -1,7 +1,7 @@
 import json
 
 
-def total_json(inp, ignore_red=False):
+def _total_json(inp, ignore_red=False):
     # Recursion base case
     if isinstance(inp, int):
         return inp
@@ -12,12 +12,12 @@ def total_json(inp, ignore_red=False):
         inp = inp.values()
         if ignore_red and 'red' in inp:
             return 0
-    return sum(total_json(i, ignore_red) for i in inp)
+    return sum(_total_json(i, ignore_red) for i in inp)
 
 
 def day12(data):
     d = json.loads(data)
-    return total_json(d), total_json(d, True)
+    return _total_json(d), _total_json(d, True)
 
 
 if __name__ == '__main__':

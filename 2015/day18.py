@@ -2,7 +2,7 @@ from itertools import product
 import numpy as np
 
 
-def step(current):
+def _step(current):
     padded = np.pad(current, 1)  # Pad to prevent IndexError on edge lights
     def surrounding(x, y):
         x += 1  # Account for padding offset
@@ -28,9 +28,9 @@ def day18(inp):
     grid_2[CORNER_POSITIONS] = True  # Always on light
     for _ in range(100):
         # Part 1
-        grid_1 = step(grid_1)
+        grid_1 = _step(grid_1)
         # Part 2
-        grid_2 = step(grid_2)
+        grid_2 = _step(grid_2)
         grid_2[CORNER_POSITIONS] = True  # Always on light
     return grid_1.sum(), grid_2.sum()
 
