@@ -1,4 +1,4 @@
-from math import prod
+from math import prod, pi
 from sympy import factorint
 
 
@@ -16,14 +16,14 @@ def _sum_factors(n, div_limit=None):
 
 def day20(inp):  # Can 100% be improved
     # Part 1
-    part1 = 1
-    target_factor = int(inp) / 10
-    while _sum_factors(part1) < target_factor:  # Brute force
+    target_sum = int(inp) / 10
+    part1 = int(target_sum ** (2/3) / (6/pi**2))  # https://oeis.org/A000203
+    while _sum_factors(part1) < target_sum:  # Brute force
         part1 += 1
     # Part 2
     part2 = 1
-    target_factor = int(inp) / 11
-    while _sum_factors(part2, div_limit=50) < target_factor:  # Also brute force
+    target_sum = int(inp) / 11
+    while _sum_factors(part2, div_limit=50) < target_sum:  # Also brute force
         part2 += 1
     return part1, part2
 
