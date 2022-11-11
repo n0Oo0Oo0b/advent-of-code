@@ -1,4 +1,4 @@
-def _get_locations(directions):
+def get_locations(directions):
     x, y = 0, 0
     visited = {(x, y)}
     for char in directions:
@@ -11,8 +11,8 @@ def _get_locations(directions):
 
 
 def day3(data):
-    part1 = len(_get_locations(data))
-    part2 = len(_get_locations(data[::2]) | _get_locations(data[1::2]))
+    part1 = len(get_locations(data))
+    part2 = len(get_locations(data[::2]) | get_locations(data[1::2]))
     return part1, part2
 
 
