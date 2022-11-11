@@ -1,54 +1,54 @@
-from numpy import uint16
+import numpy as np  # just for uint16
 import operator
 
-OPERATIONS = {
+
+_OPERATIONS = {
     'AND': operator.and_,
     'OR': operator.or_,
     'LSHIFT': operator.lshift,
     'RSHIFT': operator.rshift
 }
 
-def parse_expression(inp: str) -> tuple[callable, list[str|uint16]] | uint16:
+
+def _parse_expression(inp: str):
     match inp.split():
         case x,:
             if x.isdigit():
-                return uint16(x)
+                return np.uint16(x)
             return (lambda x:x), [x]
         case 'NOT', x:
             return operator.invert, [x]
         case a, op, b:
             # convert preset values
-            if a.isdigit(): a = uint16(a)
-            if b.isdigit(): b = uint16(b)
-            return OPERATIONS[op], [a, b]
+            if a.isdigit(): a = np.uint16(a)
+            if b.isdigit(): b = np.uint16(b)
+            return _OPERATIONS[op], [a, b]
 
-def resolve_item(circuit, inp):
-    if isinstance(inp, uint16): return inp
-    else: return resolve_wire(circuit, inp)  # recurse
 
-def resolve_wire(circuit, target='a'):
-    if isinstance(circuit[target], uint16):  # already resolved
+def _resolve_wire(circuit, target):
+    if isinstance(target, np.integer):  # recursion base case
+        return target
+    elif isinstance(circuit[target], np.integer):  # already resolved
         return circuit[target]
-
     op, inputs = circuit[target]
-    result = op(*(resolve_item(circuit, i) for i in inputs))
+    result = op(*(_resolve_wire(circuit, i) for i in inputs))
     circuit[target] = result  # save result for future use
     return result
 
+
 def day7(data):
+    # Parse input
     circuit = {}
     for row in data.splitlines():
         inputs, _, wire = row.partition(' -> ')
-        circuit[wire] = parse_expression(inputs)
-
+        circuit[wire] = _parse_expression(inputs)
     # Part 1
     circuit1 = circuit.copy()
-    part1 = resolve_wire(circuit1)
-
+    part1 = _resolve_wire(circuit1, 'a')
     # Part 2
     circuit2 = circuit.copy()
     circuit2['b'] = part1
-    part2 = resolve_wire(circuit2)
+    part2 = _resolve_wire(circuit2, 'a')
 
     return part1, part2
 

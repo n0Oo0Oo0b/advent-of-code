@@ -32,25 +32,23 @@ def day15(data):
     # Parse input
     ingredients = []
     for row in data.splitlines():
-        ingredients.append(Ingredient(*(int(i) for i in re.findall(r'-?\d+', row))))
-
+        values = (int(i) for i in re.findall(r'-?\d+', row))
+        ingredients.append(Ingredient(*values))
     # Brute force every recipe
-    part1, part2 = 0, 0
+    part1 = 0
+    part2 = 0
     for i in combinations_with_replacement(range(101), len(ingredients)-1):
         i = (0, *i, 100)
         quantities = (i[j+1] - i[j] for j in range(len(ingredients)))
-
         # Calculate ingredient score
         cookie = Ingredient(0, 0, 0, 0, 0)  # start with empty stats
         for ingredient, multiplier in zip(ingredients, quantities):
             cookie += ingredient * multiplier
         score = cookie.score
-
         # Update maximum
         part1 = max(part1, score)
         if cookie.calories == 500:
             part2 = max(part2, cookie.score)
-
     return part1, part2
 
 
