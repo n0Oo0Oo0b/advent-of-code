@@ -1,13 +1,14 @@
 import re
 
-def say(match):
-    return f'{match.end() - match.start()}{match.string[match.start()]}'
 
 def day10(data):
+    def say(match):
+        return f'{match.end() - match.start()}{match.string[match.start()]}'
+
     for _ in range(40):
         data = re.sub(r'(\d)\1*', say, data)
     part1 = len(data)
-    for _ in range(10):  # burte force part 2 because I couldn't think of anything better
+    for _ in range(10):
         data = re.sub(r'(\d)\1*', say, data)
     return part1, len(data)
 
