@@ -8,11 +8,11 @@ def solve(inp):
         opponent = 'ABC'.index(opponent)
         self = 'XYZ'.index(self)
         # Part 1
-        part1 += self + 1  # points for playing
+        part1 += self + 1  # r/p/s
         part1 += ((self - opponent + 1) % 3) * 3  # win/tie/loss
         # Part 2
         part2 += self * 3  # win/tie/loss
-        part2 += (opponent + self - 1) % 3 + 1  # playing
+        part2 += (opponent + self - 1) % 3 + 1  # r/p/s
     return part1, part2
 
 
