@@ -3,7 +3,8 @@ from solutions import (
     day02,
     day03,
     day04,
-    day05
+    day05,
+    day06
 )
 
 days = {
@@ -11,5 +12,6 @@ days = {
     2: day02,
     3: day03,
     4: day04,
-    5: day05
+    5: day05,
+    6: day06
 }
