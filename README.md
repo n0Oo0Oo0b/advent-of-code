@@ -1,7 +1,7 @@
 # advent-of-code
 
-My new repo for Advent of Code solutions
+An [Advent of Code](https://adventofcode.com) repo that actually has readable code
 
 Old code is placed in `./archive/`
 
-###### Old progress: 236* | New progress: 55*
+###### Old progress: `236*` | New progress: `55*`
