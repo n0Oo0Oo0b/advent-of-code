@@ -7,7 +7,7 @@ def solve(inp):
     raw_stack = raw_stack.splitlines()
     instructions = instructions.splitlines()
     # Parse stacks
-    stack_1 = [[] for _ in range(len(raw_stack[0]) // 4 + 1)]  # Part 1
+    stack_1 = [[] for _ in range(len(raw_stack[8]) // 4 + 1)]  # Part 1
     for row in raw_stack[-2::-1]:
         for i, e in enumerate(row[1::4]):
             if e == ' ':
