@@ -1,4 +1,4 @@
-from solutions import (
+from . import (
     day01,
     day02,
     day03,
