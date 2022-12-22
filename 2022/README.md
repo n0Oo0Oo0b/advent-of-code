@@ -24,10 +24,10 @@
 |                      18 | `06:37` (722)      | `27:59` (811)      | `21:22`   |
 |                      19 | `4:02:21` (2382)   | `4:05:37` (1777)   | `03:16`   |
 |                      20 | `08:52` (**15**)   | `09:41` (**3!!!**) | `00:49`   |
-|                      21 |                    |                    |           |
-|                      22 |                    |                    |           |
+|                      21 | `07:35` (426)      | `25:13` (359)      | `17:38`   |
+|                      22 | `20:51` (133)      | `2:12:24` (703)    | `1:51:33` |
 |                      23 |                    |                    |           |
 |                      24 |                    |                    |           |
 |                      25 |                    |                    |           |
 
-I haven't bothered adding my solutions past day 8, I will eventually get around to doing it at some point
+I will eventually have a cleaned-up version of each day at some point

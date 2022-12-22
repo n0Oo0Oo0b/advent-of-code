@@ -4,4 +4,4 @@ An [Advent of Code](https://adventofcode.com) repo that actually has readable co
 
 Old code is placed in `./archive/`
 
-###### Old progress: `236*` | New progress: `83*`
+###### Old progress: `236*` | New progress: `87*`
