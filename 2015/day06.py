@@ -2,7 +2,7 @@ import numpy as np
 import re
 
 
-def day6(data):
+def day06(data):
     lights_1 = np.zeros((1000, 1000), bool)  # part 1
     lights_2 = np.zeros((1000, 1000), int)  # part 2
     for row in data.splitlines():
@@ -27,4 +27,4 @@ def day6(data):
 if __name__ == '__main__':
     with open('inputs/day06.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day6(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day06(data)))

@@ -1,7 +1,7 @@
 import re
 
 
-def day8(data):
+def day08(data):
     part1 = 0
     part2 = 0
     for line in data.splitlines():
@@ -14,4 +14,4 @@ def day8(data):
 if __name__ == '__main__':
     with open('inputs/day08.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day8(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day08(data)))

@@ -19,7 +19,7 @@ def _is_nice_2(string):
     return True
 
 
-def day5(data):
+def day05(data):
     nice_1 = 0  # Part 1
     nice_2 = 0  # Part 2
     for row in data.splitlines():
@@ -33,4 +33,4 @@ def day5(data):
 if __name__ == '__main__':
     with open('inputs/day05.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day5(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day05(data)))

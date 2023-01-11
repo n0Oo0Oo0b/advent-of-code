@@ -1,7 +1,7 @@
 from itertools import permutations
 
 
-def day9(data):
+def day09(data):
     # Parse input
     nodes = set()
     distances = {}
@@ -23,4 +23,4 @@ def day9(data):
 if __name__ == '__main__':
     with open('inputs/day09.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day9(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day09(data)))

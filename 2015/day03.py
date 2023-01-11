@@ -10,7 +10,7 @@ def _get_locations(directions):
     return visited
 
 
-def day3(data):
+def day03(data):
     part1 = len(_get_locations(data))
     part2 = len(_get_locations(data[::2]) | _get_locations(data[1::2]))
     return part1, part2
@@ -19,4 +19,4 @@ def day3(data):
 if __name__ == '__main__':
     with open('inputs/day03.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day3(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day03(data)))

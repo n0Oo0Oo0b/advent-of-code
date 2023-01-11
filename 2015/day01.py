@@ -1,4 +1,4 @@
-def day1(data):
+def day01(data):
     floor = 0
     part2 = None
     for i, char in enumerate(data):
@@ -14,4 +14,4 @@ def day1(data):
 if __name__ == '__main__':
     with open('inputs/day01.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day1(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day01(data)))

@@ -36,7 +36,7 @@ def _resolve_wire(circuit, target):
     return result
 
 
-def day7(data):
+def day07(data):
     # Parse input
     circuit = {}
     for row in data.splitlines():
@@ -56,4 +56,4 @@ def day7(data):
 if __name__ == '__main__':
     with open('inputs/day07.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day7(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day07(data)))

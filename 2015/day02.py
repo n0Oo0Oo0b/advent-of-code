@@ -1,4 +1,4 @@
-def day2(data):
+def day02(data):
     # Parse input
     boxes = []
     for row in data.splitlines():
@@ -15,4 +15,4 @@ def day2(data):
 if __name__ == '__main__':
     with open('inputs/day02.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day2(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day02(data)))

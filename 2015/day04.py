@@ -1,7 +1,7 @@
 import hashlib
 
 
-def day4(data):
+def day04(data):
     i = 0
     part1 = None
     part2 = None
@@ -19,4 +19,4 @@ def day4(data):
 if __name__ == '__main__':
     with open('inputs/day04.txt') as file:
         data = file.read()
-    print("Part 1: {}\nPart 2: {}".format(*day4(data)))
+    print("Part 1: {}\nPart 2: {}".format(*day04(data)))
