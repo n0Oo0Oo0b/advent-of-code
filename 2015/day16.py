@@ -11,15 +11,15 @@ def _parse_properties(inp):
 
 def day16(inp):
     TARGET_PROPERTIES = {  # fixed data
-        'children': 3, 
-        'cats': 7, 
-        'samoyeds': 2, 
-        'pomeranians': 3, 
-        'akitas': 0, 
-        'vizslas': 0, 
-        'goldfish': 5, 
-        'trees': 3, 
-        'cars': 2, 
+        'children': 3,
+        'cats': 7,
+        'samoyeds': 2,
+        'pomeranians': 3,
+        'akitas': 0,
+        'vizslas': 0,
+        'goldfish': 5,
+        'trees': 3,
+        'cars': 2,
         'perfumes': 1
     }
     part1 = None
@@ -51,6 +51,5 @@ def day16(inp):
 
 
 if __name__ == '__main__':
-    with open('inputs/day16.txt') as file:
-        data = file.read()
+    from aocd import data
     print("Part 1: {}\nPart 2: {}".format(*day16(data)))

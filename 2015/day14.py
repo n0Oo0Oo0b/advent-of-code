@@ -25,6 +25,5 @@ def day14(data: str):
 
 
 if __name__ == '__main__':
-    with open('inputs/day14.txt') as file:
-        data = file.read()
+    from aocd import data
     print("Part 1: {}\nPart 2: {}".format(*day14(data)))

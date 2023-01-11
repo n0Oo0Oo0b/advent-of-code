@@ -29,6 +29,5 @@ def day20(inp):  # Can 100% be improved
 
 
 if __name__ == '__main__':
-    with open('inputs/day20.txt') as file:
-        data = file.read()
+    from aocd import data
     print("Part 1: {}\nPart 2: {}".format(*day20(data)))

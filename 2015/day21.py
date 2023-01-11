@@ -22,7 +22,7 @@ class _Stats:
             stats.defense += item.defense
             stats.price += item.price
         return stats
-    
+
     def __hash__(self):
         # Ignores price
         return hash((self.health, self.damage, self.defense))
@@ -68,6 +68,5 @@ def day21(inp):
 
 
 if __name__ == '__main__':
-    with open('inputs/day21.txt') as file:
-        data = file.read()
+    from aocd import data
     print("Part 1: {}\nPart 2: {}".format(*day21(data)))

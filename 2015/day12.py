@@ -7,7 +7,7 @@ def _total_json(inp, ignore_red=False):
         return inp
     elif isinstance(inp, str):
         return 0
-    
+
     if isinstance(inp, dict):  # dict (use values)
         inp = inp.values()
         if ignore_red and 'red' in inp:
@@ -21,6 +21,5 @@ def day12(data):
 
 
 if __name__ == '__main__':
-    with open('inputs/day12.txt') as file:
-        data = file.read()
+    from aocd import data
     print("Part 1: {}\nPart 2: {}".format(*day12(data)))
