@@ -12,8 +12,10 @@ def solve(inp):
             else:  # next level
                 stack.append(0)
     all_dir_sizes += stack  # add remaining directories
-    print(all_dir_sizes, stack, sep='\n')
-    return None, None
+    part1 = sum(i for i in all_dir_sizes if i <= 1e5)
+    root_size = stack[0]
+    part2 = min(i for i in all_dir_sizes if i >= root_size - 4e7)
+    return part1, part2
 
 
 if __name__ == '__main__':
