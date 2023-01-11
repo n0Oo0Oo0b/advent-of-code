@@ -13,19 +13,6 @@ def solve(inp):
     return part1, part2
 
 
-def speedcode_solution(inp):
-    # Originally done with aocd.lines
-    inp = inp.splitlines()
-    t = [0]
-    for x in inp:
-        if x == '':
-            t.append(0)
-        else:
-            t[-1] += int(x)
-    t.sort()
-    return t[-1], sum(t[-3:])
-
-
 if __name__ == '__main__':
     from aocd import data
     part1, part2 = solve(data)

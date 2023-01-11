@@ -10,19 +10,6 @@ def solve(inp):
     return part1, part2
 
 
-def speedcode_solution(inp):
-    for i in range(len(inp)):
-        if len(set(inp[i:i + 4])) == 4:
-            break
-    part1 = i + 4
-    for i in range(len(inp)):
-        if len(set(inp[i:i + 14])) == 14:
-            break
-    part2 = i + 14
-
-    return part1, part2
-
-
 if __name__ == '__main__':
     from aocd import data
     part1, part2 = solve(data)
