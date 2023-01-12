@@ -1,33 +1,28 @@
-from math import prod, pi
-from sympy import factorint
+from math import ceil
+import numpy as np
 
 
-def _sum_factors(n, div_limit=None):
-    if div_limit:
-        t = 0
-        for i in range(1, div_limit+1):
-            d, m = divmod(n, i)
-            if m == 0:
-                t += d
-        return t
-    else:
-        return prod(((base**(exp+1)-1) / (base-1)) for base, exp in factorint(n).items())
-
-
-def day20(inp):  # Can 100% be improved
+def day20(inp):  # still can probably be improved
+    inp = int(inp)
     # Part 1
-    target_sum = int(inp) / 10
-    part1 = int(target_sum ** (2/3) / (6/pi**2))  # https://oeis.org/A000203
-    while _sum_factors(part1) < target_sum:  # Brute force
-        part1 += 1
+    target = ceil(inp/10)
+    presents = np.zeros((target+1,), int)  # presents[n] = number of presents at house n
+    for n in range(1, target+1):
+        presents[::n] += n
+    part1 = np.nonzero(presents > target)[0][1]
     # Part 2
-    part2 = 1
-    target_sum = int(inp) / 11
-    while _sum_factors(part2, div_limit=50) < target_sum:  # Also brute force
-        part2 += 1
+    target = ceil(inp/11)
+    presents.fill(0)  # reset present count
+    for n in range(1, target+1):
+        presents[:n*50:n] += n
+    part2 = np.nonzero(presents > target)[0][1]
     return part1, part2
 
 
 if __name__ == '__main__':
     from aocd import data
+    from time import perf_counter
+    st = perf_counter()
     print("Part 1: {}\nPart 2: {}".format(*day20(data)))
+    et = perf_counter()
+    print(f'Completed in {et - st:.3f}s')
