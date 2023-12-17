@@ -1,7 +1,7 @@
 import re
 from collections import defaultdict
 from itertools import batched
-from typing import Callable
+from typing import Callable, Iterable
 
 import pyperclip
 
@@ -83,7 +83,7 @@ class SparseGrid[T](defaultdict[complex, T]):
         super().__init__(lambda: None, items or {})
 
     @classmethod
-    def from_input(cls, lines: list[str], converter: Callable[[str], T | None]):
+    def from_input(cls, lines: Iterable[str], converter: Callable[[str], T | None]):
         instance = cls()
         for y, line in enumerate(lines):
             for x, char in enumerate(line):
@@ -91,6 +91,15 @@ class SparseGrid[T](defaultdict[complex, T]):
                     continue
                 instance[y, x] = converted
         return instance
+
+    @staticmethod
+    def find_characters(lines: Iterable[Iterable[str]], char: str):
+        found = set()
+        for y, line in enumerate(lines):
+            for x, c in enumerate(line):
+                if c == char:
+                    found.add(complex(y, x))
+        return found
 
     def __getitem__(self, item):
         if isinstance(item, tuple):
@@ -193,8 +202,19 @@ def grid(inp: list[str], keep: Callable[[str], bool], convert_digits: bool = Tru
     return res
 
 
+def cparts(z: complex):
+    return int(z.real), int(z.imag)
+
+
+def cparts_f(z: complex):
+    return z.real, z.imag
+
+
+def autorange(start: int, end: int, step: int = 1):
+    return range(*sorted((start, end)), step)
+
+
 if __name__ == '__main__':
-    import day09 as sol
+    import day15 as sol
     print(sol.res)
     pyperclip.copy(sol.res)
-
